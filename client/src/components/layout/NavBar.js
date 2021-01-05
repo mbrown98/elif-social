@@ -5,7 +5,7 @@ export const NavBar = () => {
     <nav className="navbar bg-dark">
       <h1>
         <a href="index.html">
-          <i className="fas fa-code"></i> DevConnector
+          <i className="fas fa-code"></i> laces
         </a>
       </h1>
       <ul>
@@ -22,3 +22,5 @@ export const NavBar = () => {
     </nav>
   );
 };
+
+export default NavBar;
