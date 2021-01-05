@@ -19,6 +19,7 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
+    console.log("Hiiiit");
     const res = await axios.get("/api/auth");
     dispatch({
       type: USER_LOADED,

@@ -12,6 +12,7 @@ import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 
 import "./App.css";
+import { compareSync } from "bcryptjs";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -19,7 +20,8 @@ if (localStorage.token) {
 
 const App = () => {
   useEffect(() => {
-    store.dispatch(loadUser);
+    console.log("riunnnn");
+    store.dispatch(loadUser());
   }, []);
   return (
     <Provider store={store}>
