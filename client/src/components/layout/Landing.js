@@ -8,7 +8,7 @@ const Landing = () => {
           <h1 className="x-large">laces</h1>
           <p className="lead">
             Create a developer profile/portfolio, share posts and get help from
-            other developers
+            other bootcamp grads
           </p>
           <div class="buttons">
             <Link to="/register" className="btn btn-primary">
