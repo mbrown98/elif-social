@@ -268,6 +268,7 @@ router.put(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    console.log("reqqqq", req.body);
     const {
       school,
       degree,
@@ -290,7 +291,7 @@ router.put(
 
     try {
       const profile = await Profile.findOne({ user: req.user.id });
-      profile.experience.unshift(newEdu);
+      profile.education.unshift(newEdu);
       await profile.save();
       res.json(profile);
     } catch (error) {
