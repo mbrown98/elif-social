@@ -34,7 +34,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password } = req.body;
+    const { name, email, password, profilePicture } = req.body;
 
     try {
       //check if user exists
@@ -45,8 +45,9 @@ router.post(
           .json({ errors: [{ msg: "User already exists" }] });
       }
 
-      const avatar = gravatar.url(email, { s: "200", r: "pg", d: "mm" });
-
+      const avatar =
+        profilePicture || gravatar.url(email, { s: "200", r: "pg", d: "mm" });
+      console.log({ avatar });
       user = new User({
         name,
         email,

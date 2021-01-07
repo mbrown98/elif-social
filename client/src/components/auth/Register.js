@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
+import FileBase from "react-file-base64";
 
 import axios from "axios";
 import PropTypes from "prop-types";
@@ -15,9 +16,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     email: "",
     password: "",
     password2: "",
+    profilePicture: "",
   });
 
-  const { name, email, password, password2 } = formData;
+  const { name, email, password, password2, profilePicture } = formData;
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,7 +32,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       setAlert("Passwords do not match", "danger");
     } else {
       console.log("Success", { formData });
-      register({ name, email, password });
+      register({ name, email, password, profilePicture });
     }
   };
 
@@ -65,11 +67,18 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={email}
             onChange={(e) => onChange(e)}
           />
-          <small className="form-text">
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
-          </small>
         </div>
+        <div className="form-group">
+          <h4 class="text-primary">Profile Picture</h4>
+          <FileBase
+            type="file"
+            multiple={false}
+            onDone={({ base64 }) =>
+              setFormData({ ...formData, profilePicture: base64 })
+            }
+          />
+        </div>
+
         <div className="form-group">
           <input
             type="password"
