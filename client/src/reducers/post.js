@@ -18,7 +18,6 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  console.log("jhel", { action });
   const { type, payload } = action;
   switch (type) {
     case GET_POSTS:

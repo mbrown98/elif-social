@@ -15,10 +15,9 @@ import {
 
 // GET posts
 export const getPosts = () => async (dispatch) => {
-  console.log("getposts");
   try {
     const res = await axios.get("/api/posts");
-    console.log("ttt", res);
+
     dispatch({ type: GET_POSTS, payload: res.data });
   } catch (err) {
     dispatch({
@@ -107,7 +106,6 @@ export const addPost = (formData) => async (dispatch) => {
 
 // ADD comment
 export const addComment = (postId, formData) => async (dispatch) => {
-  console.log("add cmment");
   const config = {
     headers: {
       "Content-Type": "application/json",

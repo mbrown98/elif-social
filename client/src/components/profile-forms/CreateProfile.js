@@ -146,7 +146,6 @@ const CreateProfile = ({ createProfile, history }) => {
         <div className="my-2">
           <button
             onClick={() => {
-              console.log("clicked");
               toggleSocialInputs(!displaySocialInputs);
             }}
             type="button"

@@ -15,9 +15,8 @@ import {
 
 export const getCurrentProfile = () => async (dispatch) => {
   try {
-    console.log("get current profile");
     const res = await axios.get("/api/profile/me");
-    console.log("res", res);
+
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -157,9 +156,9 @@ export const addEducation = (formData, history) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    console.log("edu res");
+
     const res = await axios.put("/api/profile/education", formData, config);
-    console.log("edu res", res);
+
     dispatch({
       type: UPDATE_PROFILE,
       payload: res.data,

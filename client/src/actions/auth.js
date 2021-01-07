@@ -23,7 +23,6 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
-    console.log("Hiiiit");
     const res = await axios.get("/api/auth");
     dispatch({
       type: USER_LOADED,
@@ -51,14 +50,13 @@ export const register = ({ name, email, password, profilePicture }) => async (
 
   try {
     const res = await axios.post("/api/users", body, config);
-    console.log({ res });
+
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data,
     });
     dispatch(loadUser());
   } catch (error) {
-    console.log(error.response);
     const errors = error.response.data.errors;
 
     if (errors) {
@@ -83,14 +81,13 @@ export const login = (email, password) => async (dispatch) => {
 
   try {
     const res = await axios.post("/api/auth", body, config);
-    console.log({ res });
+
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
     dispatch(loadUser());
   } catch (error) {
-    console.log(error.response);
     const errors = error.response.data.errors;
 
     if (errors) {

@@ -32,7 +32,6 @@ if (localStorage.token) {
 
 const App = () => {
   useEffect(() => {
-    console.log("riunnnn");
     store.dispatch(loadUser());
   }, []);
   return (

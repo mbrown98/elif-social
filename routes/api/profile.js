@@ -269,7 +269,7 @@ router.put(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    console.log("reqqqq", req.body);
+
     const {
       school,
       degree,
@@ -339,7 +339,6 @@ router.get("/github/:username", (req, res) => {
       headers: { "user-agent": "node.js" },
     };
 
-    console.log({ options });
     request(options, (error, response, body) => {
       if (error) console.error(error);
       if (response.statusCode !== 200) {
