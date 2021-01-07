@@ -6,8 +6,10 @@ import { GET_POSTS, POST_ERROR } from "./types";
 
 // GET posts
 export const getPosts = () => async (dispatch) => {
+  console.log("getposts");
   try {
-    const res = axios.get("/api/posts");
+    const res = await axios.get("/api/posts");
+    console.log("ttt", res);
     dispatch({ type: GET_POSTS, payload: res.data });
   } catch (err) {
     dispatch({
@@ -16,3 +18,5 @@ export const getPosts = () => async (dispatch) => {
     });
   }
 };
+
+//

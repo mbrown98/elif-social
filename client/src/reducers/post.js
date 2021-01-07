@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import { GET_POSTS, POST_ERROR } from "../action/types";
+import { GET_POSTS, POST_ERROR } from "../actions/types";
 
 const initialState = {
   posts: [],
@@ -9,6 +9,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+  console.log("jhel", { action });
   const { type, payload } = action;
   switch (type) {
     case GET_POSTS:
