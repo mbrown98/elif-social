@@ -52,9 +52,10 @@ const Profile = ({
               <h2 className="text-primary">Education</h2>
               {profile.education.length > 0 ? (
                 <Fragment>
-                  {profile.education.map((edu) => (
-                    <ProfileEducation key={edu._id} experience={edu} />
-                  ))}
+                  {profile.education.map((edu) => {
+                    console.log({ edu });
+                    return <ProfileEducation key={edu._id} education={edu} />;
+                  })}
                 </Fragment>
               ) : (
                 <h4>No education listed</h4>
