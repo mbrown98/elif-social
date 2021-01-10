@@ -17,7 +17,7 @@ import axios from "axios";
 import "./App.css";
 // import { compareSync } from "bcryptjs";
 
-axios.defaults.baseURL = "https://laces-be.herokuapp.com";
+axios.defaults.baseURL = "http://laces-be.herokuapp.com";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
