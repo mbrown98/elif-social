@@ -33,9 +33,11 @@ const App = () => {
         {" "}
         <Fragment>
           <NavBar />
-
-          <Route exact path="/" component={Landing} />
-          <Route component={Routes} />
+          <Switch>
+            {" "}
+            <Route exact path="/" component={Landing} />
+            <Route component={Routes} />
+          </Switch>
         </Fragment>
       </Router>
     </Provider>
